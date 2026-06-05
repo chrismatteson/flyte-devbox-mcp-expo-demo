@@ -1,7 +1,10 @@
 {
   // Status-bar "Reset Booth" button, provided by the Action Buttons extension
-  // (seunlanlege.action-buttons). Click it to archive the current visitor's
-  // tasks/ into archive/<timestamp>/ — no keyboard needed.
+  // (seunlanlege.action-buttons). Click it for a full one-click booth reset —
+  // no keyboard needed. It runs claude-vscode.newConversation, which clears the
+  // Claude conversation AND fires the SessionStart "clear" hook that archives
+  // tasks/ into archive/<timestamp>/ (see .claude/settings.json + scripts/reset.sh).
+  // useVsCodeApi:true runs it through the editor API, so no terminal pops up.
   "actionButtons": {
     "reloadButton": null,
     "defaultColor": "#ffffff",
@@ -12,8 +15,7 @@
         "color": "#7CFC00",
         "singleInstance": true,
         "useVsCodeApi": true,
-        "command": "workbench.action.tasks.runTask",
-        "args": ["Reset Booth"]
+        "command": "claude-vscode.newConversation"
       }
     ]
   }

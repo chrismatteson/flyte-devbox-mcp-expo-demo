@@ -22,7 +22,8 @@ in parallel, and build reports. Don't guess Flyte syntax from memory; ask the MC
 
 ## Keep the booth fast (the only rules)
 - **Standard library only** — extra deps trigger a slow image build = dead air.
+- **LLM use cases** — add `flyte.Secret(key="anthropicapi", as_env_var="ANTHROPIC_API_KEY")` to the `TaskEnvironment` and use the `flyteplugins-anthropic` plugin (this one image build is expected; keep everything else stdlib).
 - **Run on the devbox**, never `--local`.
-- **Always write what its done to stdout in each task**
-- **Always end in a report**, then `await flyte.report.flush.aio()` (without the flush nothing is written).
+- **Provide verbose logging to stdout**
+- **Always end in a report**
 - Only write inside `tasks/`.

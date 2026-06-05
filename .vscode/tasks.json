@@ -2,8 +2,10 @@
   "version": "2.0.0",
   "tasks": [
     {
-      // Fallback trigger for the same reset (Terminal > Run Task > Reset Booth,
-      // or bind a key). The status-bar button above is the no-keyboard path.
+      // Manual archive-only fallback (Terminal > Run Task > Reset Booth):
+      // archives tasks/ WITHOUT clearing the conversation. "reveal": "never"
+      // keeps it silent. The status-bar button does a FULL reset instead
+      // (clears the chat + archives via the SessionStart hook) — see settings.json.
       "label": "Reset Booth",
       "type": "shell",
       "command": "bash \"${workspaceFolder}/scripts/reset.sh\"",

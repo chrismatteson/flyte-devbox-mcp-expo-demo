@@ -29,7 +29,7 @@ Runs it on the local devbox  →  ~8–16 parallel nodes (flyte.map)
 Open the printed localhost:30080/v2/... URL  →  live DAG + explorable Report
         │
         ▼
-Operator presses Cmd+K twice  →  work archived, context cleared, next visitor
+Operator clicks the Reset Booth button  →  work archived, ready for next visitor
 ```
 
 Everything the visitor sees is generated on the spot. The **creative wildcard**
@@ -84,6 +84,26 @@ ends in an explorable report. (The `[bracketed]` part is the bit *you* make up.)
   → define the spread rules → fan out randomized Monte-Carlo trials → report:
   average heatmap over time + outcome distribution + the most extreme run.
 
+### 🤝 With an AI agent in the loop (uses the `anthropicapi` secret)
+
+These ask Claude to build a pipeline where a **Claude agent** runs *inside* the
+tasks — calling other Flyte tasks as its tools. (One quick image build the first
+time; then it's live.)
+
+- 🥪 **AI sandwich architect.** *"Give a Claude agent a pile of
+  **[whatever ingredients you shout out — kimchi, marshmallow, anchovies…]** and
+  have it plan and assemble the tastiest sandwich it can, building a few different
+  ones in parallel."*
+  → agent decides the build order and calls prep/stack/finish tasks as tools →
+  report: each sandwich, its ingredients, and the agent's reasoning.
+
+- 🦾 **MLE agent that writes its own training run.** *"Turn loose an ML-engineer
+  agent on predicting **[taco ratings / asteroid danger — your pick]**: let it
+  invent features, write and run its own training, read the score, and iterate to
+  beat its last attempt."*
+  → agent authors each training attempt, runs it on the devbox, evaluates, and
+  refines in a loop → report: the score-per-iteration climb + the model it shipped.
+
 Each forces Claude to make real engineering choices, fans out across the devbox,
 and produces an explorable report — echoing the real-world shapes from the
 [Flyte/Union tutorials](https://www.union.ai/docs/v2/union/tutorials) (HPO,
@@ -94,6 +114,6 @@ Monte-Carlo modeling).
 
 ## The rules Claude follows (see `CLAUDE.md`)
 - **Stdlib only** — no extra packages, so there's never a slow image build.
-- **Always runs on the devbox**, never `--local` (parallel map needs the real backend).
+- **Always runs on the devbox**, never `--local` 
 - **Always a report** — visitors get something to explore.
 - **Stays in `tasks/`** — touches nothing else; doesn't deploy to any cloud.

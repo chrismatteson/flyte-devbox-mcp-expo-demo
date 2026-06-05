@@ -1,10 +1,8 @@
 {
   "mcpServers": {
     "flyte": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["--with", "flyte", "flyte-mcp"],
-      "env": {}
+      "type": "http",
+      "url": "https://flyte-mcp.apps.demo.hosted.unionai.cloud/flyte-mcp/mcp"
     }
   }
 }

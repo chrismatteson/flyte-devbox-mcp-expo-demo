@@ -17,7 +17,7 @@ booth loop, and the visitor prompt menu, see [README.md](README.md).
 3. **Start the local Flyte devbox** (the k3s container that serves
    `localhost:30080`). Confirm it's up:
    ```bash
-   flyte --config .flyte/config-sandbox.yaml get project --project flytesnacks --domain development
+   flyte --config .flyte/config.yaml get project --project flytesnacks --domain development
    ```
 4. **Open a browser tab** to `http://localhost:30080/v2/` on the screen the
    audience sees.
@@ -25,7 +25,7 @@ booth loop, and the visitor prompt menu, see [README.md](README.md).
 ### Pre-flight checklist (morning of)
 - [ ] Devbox container running; `get project` returns `flytesnacks`.
 - [ ] Warm run succeeds end-to-end (see below) and the **Report** renders.
-- [ ] `bash scripts/reset.sh` archives cleanly.
+- [ ] **Reset Booth** button (status bar) archives cleanly with no terminal popup.
 - [ ] `/clear` (Cmd+K twice) archives + resets without a hitch.
 - [ ] Mic / dictation working in VS Code (macOS: press **Fn** twice to dictate).
 
@@ -48,10 +48,11 @@ Then `bash scripts/reset.sh` to clear before the floor opens.
    it** on the audience screen.
 3. Walk them through the **Report** — the traits, the parallel fan-out, the
    scoring. Let them see it's real.
-4. **Reset:** press **Cmd+K twice** (runs `/clear`). Their work is archived to
-   `archive/<timestamp>/`, the workspace is wiped, and the conversation is fresh
-   for the next person. (Or type **`/reset`** to archive without clearing
-   context.)
+4. **Reset:** click the **Reset Booth** button in the status bar (no keyboard
+   needed). This does a full reset in one click — it starts a fresh Claude
+   conversation **and** archives their work to `archive/<timestamp>/` (via the
+   `SessionStart` hook), leaving `tasks/` clean for the next person. Pressing
+   **Cmd+K twice** (`/clear`) does the same thing from the keyboard.
 
 ---
 
@@ -59,11 +60,12 @@ Then `bash scripts/reset.sh` to clear before the floor opens.
 
 | Action | What it does |
 |---|---|
-| `/reset` | Archives `tasks/*` → `archive/<timestamp>/`, clears the workspace. Keeps the conversation. |
-| **Cmd+K twice** (`/clear`) | Same archive (via hook) **and** wipes the conversation for a clean next visitor. |
+| **Reset Booth** button (status bar) | Mouse-only, no keyboard. **Full reset:** starts a fresh conversation (runs `claude-vscode.newConversation`) **and** archives `tasks/*` → `archive/<timestamp>/` via the `SessionStart` `clear` hook. Silent — no terminal popup. |
+| **Cmd+K twice** (`/clear`) | The keyboard equivalent — same fresh conversation + archive. |
 
-Nothing is ever deleted — every visitor's creation is preserved under
-`archive/<timestamp>/`, so you can revisit the best ones later.
+Both paths run `scripts/reset.sh` (via the hook), which only ever **moves** files
+into `archive/<timestamp>/` — nothing is deleted and git is never touched, so
+every visitor's creation is preserved and you can revisit the best ones later.
 
 ---
 
