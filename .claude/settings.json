@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./archive/**)",
+      "Read(./README.md)",
+      "Read(./SETUP.md)",
+      "Write(./flyte/**)",
+      "Write(./.git/**)",
+      "Write(./.claude/**)",
+      "Write(./scripts/**)",
+      "Write(./CLAUDE.md)",
+      "Write(./LICENSE)",
+      "Write(./.gitignore)",
+      "Write(./pyproject.toml)",
+      "Write(./uv.lock)"    ]
+  }
+}

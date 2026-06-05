@@ -1,0 +1,14 @@
+[project]
+name = "flyte-devbox-mcp-expo-demo"
+version = "0.1.0"
+description = "Expo-booth demo: turn vague visitor ideas into real Flyte pipelines on a local devbox."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "flyte>=2.0.0b0",
+]
+
+[tool.uv]
+# Flyte 2.0 (the `flyte` package) is the only runtime dependency the booth tasks
+# need — tasks themselves are stdlib-only per CLAUDE.md, so nothing else belongs
+# here. The CLI ships with the package as `flyte`.

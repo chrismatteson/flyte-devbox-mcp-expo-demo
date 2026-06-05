@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "flyte": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["--with", "flyte", "flyte-mcp"],
+      "env": {}
+    }
+  }
+}
