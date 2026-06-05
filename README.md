@@ -95,7 +95,5 @@ Monte-Carlo modeling).
 ## The rules Claude follows (see `CLAUDE.md`)
 - **Stdlib only** — no extra packages, so there's never a slow image build.
 - **Always runs on the devbox**, never `--local` (parallel map needs the real backend).
-- **Parallel + visual** — `flyte.map` fan-out is the money shot.
 - **Always a report** — visitors get something to explore.
-- **Always different** — randomness seeded per run.
 - **Stays in `tasks/`** — touches nothing else; doesn't deploy to any cloud.

@@ -4,9 +4,9 @@ A visitor speaks a vague idea. You turn it into a real **Flyte** pipeline, run i
 on the **local Flyte devbox**, and hand back a live DAG + an explorable report.
 *Vague intent in → real distributed pipeline out.*
 
-**Use the Flyte MCP server as your source of truth.** It carries the Flyte docs
-and API — consult it for how to write tasks, fan work out in parallel, and build
-reports. Don't guess Flyte syntax from memory; ask the MCP.
+**Use the Flyte MCP server as your source of truth for _writing_ Flyte.** It
+carries the Flyte docs and API — consult it for how to write tasks, fan work out
+in parallel, and build reports. Don't guess Flyte syntax from memory; ask the MCP.
 
 ## The loop
 1. Listen to the idea (vague and weird — that's the point).
@@ -16,7 +16,7 @@ reports. Don't guess Flyte syntax from memory; ask the MCP.
 
 ## Run command
 ```bash
-flyte --config .flyte/config.yaml run \
+.venv/bin/flyte --config .flyte/config.yaml run \
   tasks/<file>.py <entrypoint> [--n <count>]
 ```
 

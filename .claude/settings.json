@@ -1,4 +1,6 @@
 {
+  "fastMode": true,
+  "effortLevel": "low",
   "permissions": {
     "deny": [
       "Read(./archive/**)",
