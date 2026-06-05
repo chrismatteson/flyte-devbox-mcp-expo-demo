@@ -11,8 +11,9 @@
         "name": "$(debug-restart) Reset Booth",
         "color": "#7CFC00",
         "singleInstance": true,
-        "focus": true,
-        "command": "bash \"${workspaceFolder}/scripts/reset.sh\""
+        "useVsCodeApi": true,
+        "command": "workbench.action.tasks.runTask",
+        "args": ["Reset Booth"]
       }
     ]
   }

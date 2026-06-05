@@ -8,7 +8,7 @@
       "type": "shell",
       "command": "bash \"${workspaceFolder}/scripts/reset.sh\"",
       "presentation": {
-        "reveal": "always",
+        "reveal": "never",
         "panel": "shared",
         "clear": true
       },
