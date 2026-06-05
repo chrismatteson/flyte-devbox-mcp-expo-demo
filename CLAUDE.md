@@ -26,7 +26,3 @@ flyte --config .flyte/config.yaml run \
 - **Always write what its done to stdout in each task**
 - **Always end in a report**, then `await flyte.report.flush.aio()` (without the flush nothing is written).
 - Only write inside `tasks/`.
-
-## Reset between visitors
-`/reset` archives `tasks/*` into `archive/<timestamp>/`. Pressing **Cmd+K twice**
-(`/clear`) does the same via a hook and wipes the conversation for the next visitor.

@@ -1,0 +1,19 @@
+{
+  // Status-bar "Reset Booth" button, provided by the Action Buttons extension
+  // (seunlanlege.action-buttons). Click it to archive the current visitor's
+  // tasks/ into archive/<timestamp>/ — no keyboard needed.
+  "actionButtons": {
+    "reloadButton": null,
+    "defaultColor": "#ffffff",
+    "loadNpmCommands": false,
+    "commands": [
+      {
+        "name": "$(debug-restart) Reset Booth",
+        "color": "#7CFC00",
+        "singleInstance": true,
+        "focus": true,
+        "command": "bash \"${workspaceFolder}/scripts/reset.sh\""
+      }
+    ]
+  }
+}

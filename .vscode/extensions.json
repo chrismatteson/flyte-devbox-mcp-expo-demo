@@ -1,0 +1,4 @@
+{
+  // VS Code will prompt to install this — it provides the status-bar button.
+  "recommendations": ["seunlanlege.action-buttons"]
+}

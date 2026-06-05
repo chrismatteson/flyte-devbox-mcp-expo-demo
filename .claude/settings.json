@@ -12,6 +12,21 @@
       "Write(./LICENSE)",
       "Write(./.gitignore)",
       "Write(./pyproject.toml)",
-      "Write(./uv.lock)"    ]
+      "Write(./uv.lock)",
+      "Write(.vscode/**)"
+    ]
+  },
+    "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/reset.sh\""
+          }
+        ]
+      }
+    ]
   }
 }
